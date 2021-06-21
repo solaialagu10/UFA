@@ -1,0 +1,40 @@
+.image-container{
+  background-color: #e6e6e6;
+  /* background-color: #f2f2f2; */
+  /* background-color:#003E5C;   */
+  display:inline-block;
+  width: 100%;
+  padding-left:25px;
+}
+
+.image{
+  width:30%;
+  display:inline-block;
+  float: left;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  margin:10px
+}
+
+.expanded-image{
+  width:90%;
+  height:90%;
+}
+.dialog{
+  position:absolute;
+  width:50vw;
+  height:75vh;
+  border:1px solid grey;
+  border-radius: 4px;
+  top: 15vh;
+  left: 30vw;
+}
+
+.resultImages{
+/* width: 100%; */
+text-align: left;
+float:left;
+display: inline-block;
+padding:10px 0 0 10px;
+width:50%;
+}
