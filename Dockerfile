@@ -1,5 +1,5 @@
 FROM node:12.18-alpine
-COPY ["package.json", "package-lock.json*"]
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --dev --silent && mv node_modules ../
 COPY . .
 EXPOSE 3000

@@ -29,7 +29,7 @@ function ImagesComponent(props) {
                 {(view === 'grid' && selectedImages) ?
                       Object.keys(selectedImages).map(key => (
                         <div className="image">                   
-                          <img src={selectedImages[key].url} alt={selectedImages[key].description} 
+                          <img src={`data:image/png;base64,${selectedImages[key].url}`} alt={selectedImages[key].description} 
                           onClick={()=> selectedImage(selectedImages[key].url)}/>
                         </div>
                       )) :
@@ -47,7 +47,7 @@ function ImagesComponent(props) {
                               (view === 'slider2' && selectedImages) && <Carousel cols={2} rows={1} gap={10} loop containerStyle= {{background: '#f8f8f8',height:'100%',margin:'10px 80px 10px 10px'}}> 
                               {Object.keys(selectedImages).map(key => (
                                               <Carousel.Item>
-                                              <img width="80%" src={selectedImages[key].url} alt={selectedImages[key].description}/>
+                                              <img width="80%" src={`data:image/png;base64,${selectedImages[key].url}`} alt={selectedImages[key].description}/>
                                             </Carousel.Item>
                                             
                                             ))}
@@ -69,3 +69,4 @@ function ImagesComponent(props) {
 }
 
 export default ImagesComponent;
+
