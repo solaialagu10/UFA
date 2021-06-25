@@ -1,13 +1,25 @@
 import './UploadComponent.css';
 import { useState } from 'react';
-import images from './images'
+import images from './images';
+import recommendations_data from '../json/recommendations_data.json';
 import ResultsComponent from '../results/ResultsComponent';
 function UploadComponent() {
   const [selectedImages, setSelectedImages] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
   const [imge, setImge] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const onFileUpload = (event) => { 
-    const formData = new FormData();        
+    const formData = new FormData();
+    const images1 = [];
+    for (let key in recommendations_data.recommendations) {
+        if (recommendations_data.recommendations.hasOwnProperty(key)) {
+            console.log(recommendations_data.recommendations[key].recommendation_img_byte_array);
+            let val = {description:recommendations_data.recommendations[key].recommendation_img_name,
+                         url:recommendations_data.recommendations[key].recommendation_img_byte_array.substring(2,recommendations_data.recommendations[key].recommendation_img_byte_array.length-1)}
+            images1.push(val);
+         }
+      }
+      setSelectedImages(images1);      
     if(event.target.files[0] !== undefined)
     {
       setImge(URL.createObjectURL(event.target.files[0]));
@@ -19,7 +31,7 @@ function UploadComponent() {
       );         
     }
     console.log(event.target.files[0]);    
-    setSelectedImages(images);
+    // setSelectedImages(images);
     // axios.post("api/uploadfile", formData); 
   }; 
    
@@ -40,7 +52,7 @@ function UploadComponent() {
               </div>              
           </div>
           <div>
-          <ResultsComponent images={selectedImages} uploadedImage={uploadedImage} imge={imge}/>
+          <ResultsComponent images={selectedImages} uploadedImage={uploadedImage} imge={imge} />
           </div>
       </div>
     );  
@@ -48,3 +60,4 @@ function UploadComponent() {
 }
 
 export default UploadComponent;
+

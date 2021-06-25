@@ -39,6 +39,7 @@ function ResultsComponent(props) {
   const selectedImages =props.images ;
   const uploadedImage = props.uploadedImage;
   const imge =props.imge;
+  
   const [view, setView] = useState("grid");
 
 
@@ -49,9 +50,9 @@ function ResultsComponent(props) {
                 selectedImages.length > 0 ? 
                 <div className="image-container">    
                 <div style={{display:"inline-block",width:"100%",paddingTop:"10px"}}> 
-                    <div  className ="resultImages" >                      
-                      <img src={imge}  style={{width:"10vW"}}/>  
-                      <div style={{float:"right",display:"inline-block",transform: "translate(75px,10px)"}}>{uploadedImage.length > 0 ? `5 results found for uploaded image`:""}</div>                       
+                    <div  className ="resultImages" >                
+                      <img src={imge} style={{width:"10vW"}}/>
+                      <div style={{float:"right",display:"inline-block",transform: "translate(75px,10px)"}}>{uploadedImage.length > 0 ? `${selectedImages.length} results found for uploaded image`:""}</div>                       
                       </div>               
                       <div style={{float:"right",display:"inline-block",marginRight:"6%",marginTop:"1%"}}>
                         <Select
@@ -71,3 +72,4 @@ function ResultsComponent(props) {
 }
 
 export default ResultsComponent;
+
