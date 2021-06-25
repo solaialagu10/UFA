@@ -8,12 +8,18 @@ function UploadComponent() {
   const [uploadedImage, setUploadedImage] = useState("");
   const [imge, setImge] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [sample, setSample] = useState("");
+  
   const onFileUpload = (event) => { 
+    fetch(`https://api.github.com/users/hiteshsahu/repos`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(JSON.stringify(data));
+    })   
     const formData = new FormData();
     const images1 = [];
     for (let key in recommendations_data.recommendations) {
-        if (recommendations_data.recommendations.hasOwnProperty(key)) {
-            console.log(recommendations_data.recommendations[key].recommendation_img_byte_array);
+        if (recommendations_data.recommendations.hasOwnProperty(key)) {          
             let val = {description:recommendations_data.recommendations[key].recommendation_img_name,
                          url:recommendations_data.recommendations[key].recommendation_img_byte_array.substring(2,recommendations_data.recommendations[key].recommendation_img_byte_array.length-1)}
             images1.push(val);
