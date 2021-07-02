@@ -40,8 +40,10 @@ function UploadComponent() {
    
    reader.onload = (event) =>{
     inputJson.emailId = 'abc@tcs.com';
-    inputJson.byteArrayOutput =event.target.result;
-    console.log("<><> "+JSON.stringify(inputJson));
+    let result =event.target.result ;
+    result = result.substring(result.indexOf(",")+1,result.length)
+    console.log("<><> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>. "+result);
+    inputJson.byteArrayOutput =result;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
