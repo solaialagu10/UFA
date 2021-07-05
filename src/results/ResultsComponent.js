@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Select from 'react-select';
 import ImagesComponent from './ImagesComponent';
 import mainLogo from'../images/undraw-not-found-60-pq-2.png'
+import Loader from "react-loader-spinner";
 function ResultsComponent(props) {    
 
   const customStyles = {
@@ -39,7 +40,7 @@ function ResultsComponent(props) {
   const selectedImages =props.images ;
   const uploadedImage = props.uploadedImage;
   const imge =props.imge;
-  
+  const errorFlag = props.errorFlag
   const [view, setView] = useState("grid");
 
 
@@ -47,8 +48,12 @@ function ResultsComponent(props) {
   setView(value.value);
   }
     return (
-                selectedImages.length > 0 ? 
-                <div className="image-container">    
+      <div>
+       {errorFlag ? <div> Unable to process the request, Please try again later
+          </div> :""}
+     
+               { selectedImages.length > 0 ? 
+                <div className="image-container">                  
                 <div style={{display:"inline-block",width:"100%",paddingTop:"10px"}}> 
                     <div  className ="resultImages" >                
                       <img src={imge} style={{width:"10vW"}}/>
@@ -66,7 +71,8 @@ function ResultsComponent(props) {
                 </div> 
                 
                 <ImagesComponent view={view} selectedImages={selectedImages}/>  
-      </div> : <img style={{width:"30%", transform:"translateY(110px)"}} src={mainLogo} />
+      </div> : <div><img style={{width:"30%", transform:"translateY(110px)"}} src={mainLogo} /></div>}
+      </div>
     );  
    
 }

@@ -29,7 +29,7 @@ function ImagesComponent(props) {
                 {(view === 'grid' && selectedImages) ?
                       Object.keys(selectedImages).map(key => (
                         <div className="image">                   
-                          <img src={`data:image/png;base64,${selectedImages[key].url}`} alt={selectedImages[key].description} 
+                          <img src={`data:image/jpeg;base64,${selectedImages[key].url}`} alt={selectedImages[key].description} 
                           onClick={()=> selectedImage(selectedImages[key].url)}/>
                         </div>
                       )) :

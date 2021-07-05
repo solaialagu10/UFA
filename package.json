@@ -38,6 +38,7 @@
   "devDependencies": {
     "react-grid-carousel": "^1.0.1",
     "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^4.0.0",
     "react-modal": "^3.13.1",
     "react-select": "^4.3.1",
     "react-simple-image-slider": "^2.1.0"
