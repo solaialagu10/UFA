@@ -70,7 +70,7 @@ function ResultsComponent(props) {
                 </div> 
                 
                 <ImagesComponent view={view} selectedImages={selectedImages}/>  
-      </div> : <div><img style={{width:"30%", transform:"translateY(110px)"}} src={mainLogo} /></div>}
+      </div> : <div><img style={{width:"30%", transform:"translate(30px,110px)"}} src={mainLogo} /></div>}
       </div>
     );  
    

@@ -80,11 +80,12 @@ function UploadComponent() {
               </div>              
           </div>
           <div>        
-            {loaderFlag ?  <div style={{backgroundColor:"#e6e6e6"}}><Loader
+            { loaderFlag ? <div style={{backgroundColor:"#fff",opacity:"0.5",position:"fixed",width:"100%",height:"100%"}}><Loader
               type="ThreeDots"
               color="#172d48"
               visible={loaderFlag}
-              /></div> : ""}
+              style={{left:"50%",top:"50%",position:"fixed"}}
+              /></div> :""}
               <ResultsComponent images={selectedImages} uploadedImage={uploadedImage} imge={imge} errorFlag={errorFlag}/>            
           </div>
       </div>
