@@ -9,7 +9,7 @@ function App() {
       <header className="App-header"> 
       <div className="App-header2"></div>
       <div class="header-content">
-           <h3> Image Recognition Model </h3>
+           <h3> Ultra Fashion Assistant</h3>
       </div>             
       </header>
       <UploadComponent />

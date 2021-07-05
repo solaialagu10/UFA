@@ -30,7 +30,7 @@ function ImagesComponent(props) {
                       Object.keys(selectedImages).map(key => (
                         <div className="image">                   
                           <img src={`data:image/jpeg;base64,${selectedImages[key].url}`} alt={selectedImages[key].description} 
-                          onClick={()=> selectedImage(selectedImages[key].url)}/>
+                          onClick={()=> selectedImage(`data:image/jpeg;base64,${selectedImages[key].url}`)}/>
                         </div>
                       )) :
                       (view === 'slider1' && selectedImages) ? <SimpleImageSlider

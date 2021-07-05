@@ -14,9 +14,7 @@ function UploadComponent() {
   const [errorFlag,setErrorFlag]= useState(false);
   const onFileUpload = (event) => {     
     if(event.target.files[0] !== undefined)
-    {
-      setImge(URL.createObjectURL(event.target.files[0]));
-      setUploadedImage(event.target.files[0].name);    
+    { 
       readURL(event.target);          
     }
   }; 
@@ -51,6 +49,8 @@ function UploadComponent() {
                         }
                       }
                       setLoaderFlag(false);
+                      setImge(URL.createObjectURL(file));
+                      setUploadedImage(file.name);   
                       setSelectedImages(images1); 
               
         }).catch(error => {
@@ -80,11 +80,11 @@ function UploadComponent() {
               </div>              
           </div>
           <div>        
-            {loaderFlag ?  <Loader
+            {loaderFlag ?  <div style={{backgroundColor:"#e6e6e6"}}><Loader
               type="ThreeDots"
-              color="#00BFFF"
+              color="#172d48"
               visible={loaderFlag}
-              /> : ""}
+              /></div> : ""}
               <ResultsComponent images={selectedImages} uploadedImage={uploadedImage} imge={imge} errorFlag={errorFlag}/>            
           </div>
       </div>
