@@ -11,9 +11,7 @@
 border-top: 1px solid #ccc;
 border-bottom: 1px solid #ccc;
 box-shadow: 0 0 10px #ddd;
-/* background-color: #fff; */
 height:5vh;
-/* background-color: #F7D360; */
 background-color:lightgrey;
 margin-top:5px;
 }
@@ -22,40 +20,33 @@ margin-top:5px;
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 8px;
-  /* background-color: #234e9b ;   */
   background-color:#585858a1;
   font-size: 13px;
   color: #fff;
-  /* margin-left: 15%; */
 }
 input[type="file"] {
 position: relative;
 z-index: -1;
-/* top: 6px; */
 left: -98px;
 font-size: 15px;
 color: rgb(153,153,153);
 }
 .uploadText{
-  /* width: 32%; */
 float: left;
 display: inline-block;
-margin-top:10px;
-font-size:12px;
-/* font-style: italic; */
+margin-top:5px;
+font-size:13px;
 padding-left: 30px;
 }
 .buttonWrap{
-/* position: relative; */
-/* width: 45%; */
 float: left;
 display: inline-block;
 padding-top:0px !important;
 }
-
-
 .image{
   width:31%;
   display:inline-block;
   float:left;
 }
+
+

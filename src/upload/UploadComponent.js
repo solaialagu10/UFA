@@ -94,4 +94,3 @@ function UploadComponent() {
 }
 
 export default UploadComponent;
-

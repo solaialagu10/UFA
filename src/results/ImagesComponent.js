@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { useState } from 'react';
 import SimpleImageSlider from "react-simple-image-slider";
 import Carousel from 'react-grid-carousel';
-
+import '../mediaquery/mediaquery.css'
 function ImagesComponent(props) {    
   const view =props.view ;
     const customStyles = {
@@ -30,7 +30,7 @@ function ImagesComponent(props) {
                       Object.keys(selectedImages).map(key => (
                         <div className="image">                   
                           <img src={`data:image/jpeg;base64,${selectedImages[key].url}`} alt={selectedImages[key].description} 
-                          onClick={()=> selectedImage(`data:image/jpeg;base64,${selectedImages[key].url}`)}/>
+                          />
                         </div>
                       )) :
                       (view === 'slider1' && selectedImages) ? <SimpleImageSlider
@@ -44,7 +44,20 @@ function ImagesComponent(props) {
                                 showBullets={true}
                                 bgColor={"#f8f8f8"}
                               />:
-                              (view === 'slider2' && selectedImages) && <Carousel cols={2} rows={1} gap={10} loop containerStyle= {{background: '#f8f8f8',height:'100%',margin:'10px 80px 10px 10px'}}> 
+                              (view === 'slider' && selectedImages) && <Carousel 
+                              className="carosuelClass"
+                              cols={2} rows={1} gap={10} loop 
+                              mobileBreakpoint= {275}
+                              responsiveLayout= {[
+                                {
+                                  breakpoint: 800,
+                                  cols: 1,
+                                  rows: 1,
+                                  gap: 10,
+                                  loop: true
+                                }
+                              ]}
+                              showDots={true} containerStyle= {{background: '#f8f8f8',height:'100%',margin:'10px 80px 10px 10px'}}> 
                               {Object.keys(selectedImages).map(key => (
                                               <Carousel.Item>
                                               <img width="80%" src={`data:image/png;base64,${selectedImages[key].url}`} alt={selectedImages[key].description}/>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Select from 'react-select';
 import ImagesComponent from './ImagesComponent';
 import mainLogo from'../images/undraw-not-found-60-pq-2.png'
-import Loader from "react-loader-spinner";
+import '../mediaquery/mediaquery.css'
 function ResultsComponent(props) {    
 
   const customStyles = {
@@ -34,7 +34,7 @@ function ResultsComponent(props) {
   }  
   const options = [
     { value: 'grid', label: 'Grid' },
-    { value: 'slider2', label: 'Slider-2' }
+    { value: 'slider', label: 'Slider' }
   ]
   const selectedImages =props.images ;
   const uploadedImage = props.uploadedImage;
@@ -54,11 +54,11 @@ function ResultsComponent(props) {
                { selectedImages.length > 0 ? 
                 <div className="image-container">                  
                 <div style={{display:"inline-block",width:"100%",paddingTop:"10px"}}> 
-                    <div  className ="resultImages" >                
-                      <img src={imge} style={{width:"10vW"}}/>
-                      <div style={{float:"right",display:"inline-block",transform: "translate(100px,10px)"}}>{uploadedImage.length > 0 ? `Visually similar items in our catalog`:""}</div>                       
+                    <div  className ="result-images" >                
+                      <img src={imge}/>
+                      <div  className ="result-text">{uploadedImage.length > 0 ? `Visually similar items in our catalog`:""}</div>                       
                       </div>               
-                      <div style={{float:"right",display:"inline-block",marginRight:"6%",marginTop:"1%"}}>
+                      <div className ="dropdown-class" >
                         <Select
                         styles={customStyles}
                           defaultValue={options[0]}
@@ -70,7 +70,7 @@ function ResultsComponent(props) {
                 </div> 
                 
                 <ImagesComponent view={view} selectedImages={selectedImages}/>  
-      </div> : <div><img style={{width:"30%", transform:"translate(30px,110px)"}} src={mainLogo} /></div>}
+      </div> : <div><img className="default-image-class" src={mainLogo} /></div>}
       </div>
     );  
    

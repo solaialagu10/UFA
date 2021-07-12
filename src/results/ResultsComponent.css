@@ -1,6 +1,5 @@
 .image-container{
   background-color: #e6e6e6;
-  /* background-color: #f2f2f2; */
   /* background-color:#003E5C;   */
   display:inline-block;
   width: 100%;
@@ -30,16 +29,40 @@
   left: 30vw;
 }
 
-.resultImages{
-/* width: 100%; */
+.result-images{
 text-align: left;
 float:left;
 display: inline-block;
 padding:10px 0 0 10px;
-width:50%;
+width:40%;
+}
+
+.result-images img{
+ width:10vw;
 }
 
 .errorClass{
   color:red;
   padding-top:10px;
+}
+
+.default-image-class{
+  width:30%;
+  transform:translateY(25vh)
+}
+
+.result-text{
+  /* float:right;
+  display:inline-block;
+  transform: translate(100px,10px) */
+  padding-top:10px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.dropdown-class{
+  float:right;
+  display:inline-block;
+  margin-right: 6%;
+  margin-top:1%
 }
