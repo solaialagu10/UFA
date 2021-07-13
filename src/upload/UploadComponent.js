@@ -75,8 +75,8 @@ function UploadComponent() {
                           Upload
                         </button>   */}
                           <label className ="newButton" for="upload" > Upload Image</label>
-                          <input id="upload" type="file" onChange={onFileUpload} style={{display:"none"}}/> 
-                          
+                          <input id="upload" type="file" onChange={onFileUpload} style={{display:"none"}}
+                          accept=".png, .jpg, .jpeg"/>                           
               </div>              
           </div>
           <div>        
