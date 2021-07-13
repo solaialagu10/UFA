@@ -12,10 +12,20 @@ function UploadComponent() {
   const [sample, setSample] = useState("");
   const [loaderFlag,setLoaderFlag]= useState("");
   const [errorFlag,setErrorFlag]= useState(false);
+  const [uploadErrorFlag,setUploadErrorFlag]= useState(false);
   const onFileUpload = (event) => {     
     if(event.target.files[0] !== undefined)
     { 
-      readURL(event.target);          
+      setUploadErrorFlag(false);
+      setErrorFlag(false);
+      var selectedFile = event.target.files[0];
+      var idxDot = selectedFile.name.lastIndexOf(".") + 1;
+      var extFile = selectedFile.name.substr(idxDot, selectedFile.name.length).toLowerCase();
+      if (extFile == "jpg" || extFile == "jpeg" || extFile == "png" || extFile == "svg" || extFile == "gif") {
+        readURL(event.target);       
+      } else {
+        setUploadErrorFlag(true);
+      }         
     }
   }; 
 
@@ -24,8 +34,7 @@ function UploadComponent() {
     const reader = new FileReader();  
     let inputJson = {};
    
-   reader.onload = (event) =>{     
-    setErrorFlag(false);
+   reader.onload = (event) =>{ 
     setLoaderFlag(true);
     inputJson.emailId = 'abc@tcs.com';
     let result =event.target.result ;
@@ -86,7 +95,7 @@ function UploadComponent() {
               visible={loaderFlag}
               style={{left:"50%",top:"50%",position:"fixed"}}
               /></div> :""}
-              <ResultsComponent images={selectedImages} uploadedImage={uploadedImage} imge={imge} errorFlag={errorFlag}/>            
+              <ResultsComponent images={selectedImages} uploadedImage={uploadedImage} imge={imge} errorFlag={errorFlag} uploadErrorFlag={uploadErrorFlag}/>            
           </div>
       </div>
     );  

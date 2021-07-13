@@ -39,7 +39,8 @@ function ResultsComponent(props) {
   const selectedImages =props.images ;
   const uploadedImage = props.uploadedImage;
   const imge =props.imge;
-  const errorFlag = props.errorFlag
+  const errorFlag = props.errorFlag;
+  const uploadErrorFlag = props.uploadErrorFlag;
   const [view, setView] = useState("grid");
 
 
@@ -49,7 +50,8 @@ function ResultsComponent(props) {
     return (
       <div>
        {errorFlag ? <div className="errorClass"> Unable to process the request, Please try again later
-          </div> :""}
+          </div> : uploadErrorFlag ? <div className="errorClass"> Only jpg/jpeg, png, gif and svg files are allowed!
+          </div>: ""}
      
                { selectedImages.length > 0 ? 
                 <div className="image-container">                  
